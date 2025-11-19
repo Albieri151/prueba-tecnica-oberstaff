@@ -34,5 +34,149 @@
     "trial_ends_at": null,
     "next_billing_at": null,
     "last_payment_attempt": "2025-10-30T14:00:00Z"
+  },
+  {
+    "user_id": "user_005",
+    "email": "emma@techcorp.com",
+    "plan_type": "basic",
+    "status": "trial",
+    "trial_ends_at": "2025-12-05T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_006",
+    "email": "frank@startup.io",
+    "plan_type": "pro",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-10T00:00:00Z",
+    "last_payment_attempt": "2025-11-10T08:15:00Z"
+  },
+  {
+    "user_id": "user_007",
+    "email": "grace@designstudio.com",
+    "plan_type": "basic",
+    "status": "trial",
+    "trial_ends_at": "2025-12-03T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_008",
+    "email": "henry@consulting.com",
+    "plan_type": "pro",
+    "status": "past_due",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-11-25T00:00:00Z",
+    "last_payment_attempt": "2025-11-22T16:45:00Z"
+  },
+  {
+    "user_id": "user_009",
+    "email": "isabella@agency.com",
+    "plan_type": "basic",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-20T00:00:00Z",
+    "last_payment_attempt": "2025-11-20T11:20:00Z"
+  },
+  {
+    "user_id": "user_010",
+    "email": "jack@freelancer.net",
+    "plan_type": "basic",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-08T00:00:00Z",
+    "last_payment_attempt": "2025-11-08T14:30:00Z"
+  },
+  {
+    "user_id": "user_011",
+    "email": "karen@education.org",
+    "plan_type": "pro",
+    "status": "trial",
+    "trial_ends_at": "2025-12-07T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_012",
+    "email": "leo@healthcare.com",
+    "plan_type": "basic",
+    "status": "past_due",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-11-28T00:00:00Z",
+    "last_payment_attempt": "2025-11-25T13:10:00Z"
+  },
+  {
+    "user_id": "user_013",
+    "email": "mia@retail.store",
+    "plan_type": "pro",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-12T00:00:00Z",
+    "last_payment_attempt": "2025-11-12T09:45:00Z"
+  },
+  {
+    "user_id": "user_014",
+    "email": "noah@finance.com",
+    "plan_type": "basic",
+    "status": "trial",
+    "trial_ends_at": "2025-12-09T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_015",
+    "email": "olivia@nonprofit.org",
+    "plan_type": "basic",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-18T00:00:00Z",
+    "last_payment_attempt": "2025-11-18T12:00:00Z"
+  },
+  {
+    "user_id": "user_016",
+    "email": "peter@manufacturing.com",
+    "plan_type": "pro",
+    "status": "past_due",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-11-30T00:00:00Z",
+    "last_payment_attempt": "2025-11-27T15:20:00Z"
+  },
+  {
+    "user_id": "user_017",
+    "email": "quinn@techstartup.com",
+    "plan_type": "basic",
+    "status": "canceled",
+    "trial_ends_at": null,
+    "next_billing_at": null,
+    "last_payment_attempt": "2025-10-25T10:30:00Z"
+  },
+  {
+    "user_id": "user_018",
+    "email": "rachel@consulting.group",
+    "plan_type": "pro",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-25T00:00:00Z",
+    "last_payment_attempt": "2025-11-25T17:40:00Z"
+  },
+  {
+    "user_id": "user_019",
+    "email": "sam@digitalagency.com",
+    "plan_type": "pro",
+    "status": "trial",
+    "trial_ends_at": "2025-12-14T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_020",
+    "email": "tina@ecommerce.shop",
+    "plan_type": "basic",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-22T00:00:00Z",
+    "last_payment_attempt": "2025-11-22T08:50:00Z"
   }
 ]

@@ -453,7 +453,7 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner",
@@ -462,7 +462,7 @@
     "timezone": "America/Caracas",
     "timeSavedPerExecution": 1
   },
-  "versionId": "e2f70dec-5d79-4893-a3ca-7fa9483a4d08",
+  "versionId": "f85d7585-90d8-4618-8c0f-fb345946d2b2",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "df728dd38d94f2b333576385c1e21befbc8ae997c8d08f1e1a2b1ada683b998d"

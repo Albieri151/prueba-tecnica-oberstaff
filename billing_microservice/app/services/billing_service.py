@@ -10,7 +10,18 @@ class BillingService:
     @staticmethod
     def _parse_date(date_str: str) -> datetime:
         """Convierte string de fecha a objeto datetime"""
-        return datetime.strptime(date_str, "%Y-%m-%d")
+        # Acepta strings con fecha y hora (por ejemplo: "2025-11-18 20:05:44.05086+00")
+        # y extrae solo la parte de la fecha (YYYY-MM-DD) para evitar errores
+        if not date_str:
+            raise ValueError("date_str is empty")
+
+        if isinstance(date_str, datetime):
+            return date_str
+
+        s = str(date_str)
+        # separar por espacio o 'T' y tomar la porción de fecha
+        date_part = s.split(" ")[0].split("T")[0]
+        return datetime.strptime(date_part, "%Y-%m-%d")
     
     @staticmethod
     def _is_today(date_str: str) -> bool:

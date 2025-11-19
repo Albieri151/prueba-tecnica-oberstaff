@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Suscripción</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- El contenido se renderizará aquí dinámicamente -->
+    </div>
+
+    <template id="login-template">
+        <div class="container login-container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Iniciar Sesión</h2>
+                    <p>Ingresa tu ID de usuario para ver tu suscripción</p>
+                </div>
+                <div class="card-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="user-id">User ID</label>
+                            <input type="text" id="user-id" placeholder="Ej: user_123" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ver Suscripción</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="dashboard-template">
+        <div class="container dashboard-container">
+            <div class="header">
+                <h1>Dashboard de Suscripción</h1>
+                <button id="logout-btn" class="btn btn-outline-danger">Cerrar Sesión</button>
+            </div>
+
+            <div class="card">
+                <div class="card-header border-bottom">
+                    <p class="text-muted">Usuario conectado: <span id="display-user-id" class="font-mono"></span></p>
+                </div>
+                <div class="card-body" id="dashboard-content">
+                    <!-- Estado de carga -->
+                    <div id="loading-state" class="state-view">
+                        <div class="spinner"></div>
+                        <p>Cargando información de suscripción...</p>
+                    </div>
+
+                    <!-- Estado de error -->
+                    <div id="error-state" class="state-view hidden">
+                        <div class="alert alert-error">
+                            <h3>Error al cargar datos</h3>
+                            <p id="error-message"></p>
+                            <p class="text-small">Nota: Asegúrate de que el servidor local (localhost:8000) esté corriendo.</p>
+                            <button id="retry-btn" class="btn-link">Reintentar</button>
+                        </div>
+                    </div>
+
+                    <!-- Estado de éxito (Datos) -->
+                    <div id="data-state" class="state-view hidden">
+                        <div class="grid-2">
+                            <div class="info-box">
+                                <p class="label">Plan Actual</p>
+                                <p id="plan-value" class="value capitalize"></p>
+                            </div>
+                            <div class="info-box">
+                                <p class="label">Estado</p>
+                                <span id="status-badge" class="badge"></span>
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <dt>Próxima Facturación</dt>
+                                <dd id="billing-date"></dd>
+                            </div>
+                            <div id="trial-section" class="detail-item hidden">
+                                <dt>Fin de Prueba</dt>
+                                <dd id="trial-date"></dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

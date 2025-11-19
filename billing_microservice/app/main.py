@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.endpoints import billing_actions, subscription_status
 from app.settings.config import settings
 
@@ -8,6 +9,20 @@ app = FastAPI(
     version=settings.VERSION,
     docs_url="/docs",
     redoc_url="/redoc"
+)
+
+# Configurar CORS para permitir peticiones desde el puerto 5500 (p. ej. Live Server)
+origins = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Incluir routers
@@ -22,10 +37,6 @@ app.include_router(
     prefix="/api/v1",
     tags=["subscription-status"]
 )
-
-@app.get("/")
-async def root():
-    return {"message": "Microservicio de Suscripciones funcionando"}
 
 @app.get("/health")
 async def health_check():

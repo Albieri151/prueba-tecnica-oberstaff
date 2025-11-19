@@ -1,0 +1,129 @@
+{
+  "name": "Envió de Notificación Sub-Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "user_id"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "template_name"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -192,
+        16
+      ],
+      "id": "152d7d7f-d637-4e50-b3dd-4599f8793eb8",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "jsCode": "const emailTemplates = {\n  \n  // Recordatorio de trial\n  'send_trial_reminder': {\n    subject: '🔔 Tu prueba termina en 3 días',\n    body: `Hola,\\n\\nTu período de prueba termina en 3 días. ¿Listo para continuar?\\n\\nCaracterísticas de tu plan:\\n✓ Acceso completo\\n✓ Soporte prioritario\\n✓ Actualizaciones gratuitas\\n\\nSaludos,\\nEquipo SaaS`,\n    priority: 'medium'\n  },\n  \n  // Conversión de trial a premium\n  'process_trial_conversion': {\n    subject: '🎉 ¡Bienvenido a Premium!',\n    body: `Hola,\\n\\n¡Excelente noticia! Tu prueba se ha convertido exitosamente a plan premium.\\n\\nAhora tienes acceso a:\\n► Todas las funciones avanzadas\\n► Soporte 24/7\\n► Garantía de satisfacción\\n\\n¡Gracias por confiar en nosotros!\\n\\nSaludos,\\nEquipo SaaS`,\n    priority: 'high'\n  },\n  \n  // Renovación exitosa\n  'process_renewal_payment': {\n    subject: '✅ Pago procesado exitosamente',\n    body: `Hola,\\n\\nHemos renovado tu suscripción por otro mes. ¡Todo en orden!\\n\\nDetalles del pago:\\n• Monto: $29.99\\n• Próxima renovación: En 30 días\\n• Método: Tarjeta terminada en ****\\n\\nSaludos,\\nEquipo SaaS`,\n    priority: 'high'\n  },\n  \n  // Recordatorio de pago pendiente\n  'send_dunning_email': {\n    subject: '⚠️ Actualiza tu método de pago',\n    body: `Hola,\\n\\nHemos detectado un problema con tu último pago.\\n\\nPor favor:\\n1. Ingresa a tu cuenta\\n2. Actualiza tu método de pago\\n3. Confirma los cambios\\n\\nTu servicio continúa activo por 7 días más.\\n\\nSaludos,\\nEquipo SaaS`,\n    priority: 'high'\n  }\n};\n\n// Obtener los datos de entrada\nconst inputData = $input.first().json;\n\n// Buscar la plantilla\nconst template = emailTemplates[inputData.template_name];\n\n// Si no existe la plantilla, usar una por defecto\nif (!template) {\n  return {\n    ...inputData,\n    subject: 'Notificación del sistema',\n    body: 'Tienes una notificación importante.',\n    template_found: false,\n    error: `Plantilla \"${inputData.template_name}\" no encontrada`\n  };\n}\n\n// Devolver el email completo\nreturn {\n  ...inputData,\n  subject: template.subject,\n  body: template.body,\n  priority: template.priority,\n  template_found: true,\n  generated_at: new Date().toISOString()\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        16,
+        16
+      ],
+      "id": "b31927b6-b930-431d-8a99-5a3025bd8718",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Code in JavaScript').item.json.email }}",
+        "subject": "={{ $('Code in JavaScript').item.json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        432,
+        16
+      ],
+      "id": "fa838245-bbe3-4770-9596-c37e40f1d533",
+      "name": "Send a message",
+      "webhookId": "916ef690-1296-422f-9a88-d79281fc67f2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8q5uQvXqQUqNxGM3",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"utf-8\" />\n  <title>Recordatorio Oberstaff</title>\n  <style>\n    body {\n      margin: 0;\n      padding: 0;\n      background: #f7fafc;\n      font-family: Arial, Helvetica, sans-serif;\n      color: #2d3748;\n    }\n    .container {\n      max-width: 600px;\n      margin: 20px auto;\n      background: #ffffff;\n      border-radius: 8px;\n      overflow: hidden;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.1);\n    }\n    .header {\n      background: #2563eb;\n      color: #fff;\n      padding: 20px;\n      text-align: center;\n      font-size: 22px;\n      font-weight: bold;\n      letter-spacing: 0.5px;\n    }\n    .content {\n      padding: 24px;\n      line-height: 1.6;\n      font-size: 15px;\n    }\n    .content pre {\n      white-space: pre-wrap;\n      font-family: inherit;\n      background: #f9fafb;\n      padding: 12px;\n      border-radius: 6px;\n      border: 1px solid #e2e8f0;\n    }\n    .footer {\n      background: #f1f5f9;\n      color: #4a5568;\n      padding: 16px;\n      text-align: center;\n      font-size: 13px;\n    }\n    .priority {\n      display: inline-block;\n      margin-top: 10px;\n      padding: 6px 12px;\n      border-radius: 20px;\n      font-size: 12px;\n      font-weight: bold;\n      background: #edf2f7;\n      color: #2d3748;\n    }\n    .error-box {\n      margin-top: 16px;\n      padding: 12px;\n      border-radius: 6px;\n      background: #fed7d7;\n      color: #742a2a;\n      font-size: 14px;\n      border: 1px solid #f56565;\n    }\n    .meta {\n      margin-top: 12px;\n      font-size: 12px;\n      color: #718096;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      {{ $json.subject }}\n    </div>\n    <div class=\"content\">\n      <pre>{{ $json.body }}</pre>\n      \n      <!-- Mostrar prioridad si existe -->\n      <div class=\"priority\">Prioridad: {{ $json.priority || 'Normal' }}</div>\n      \n      <!-- Metadatos -->\n      <div class=\"meta\">\n        Usuario: {{ $json.user_id }} | Email: {{ $json.email }}<br/>\n        Generado el: {{ $json.generated_at }}\n      </div>\n    </div>\n    <div class=\"footer\">\n      Este es un mensaje informativo de tu suscripción.<br/>\n      Si tienes dudas, responde a este correo y nuestro equipo te ayudará.\n    </div>\n  </div>\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        16
+      ],
+      "id": "ece7da3b-a961-4502-bdcd-cd65566d58cc",
+      "name": "HTML"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "1hLgMqtzumNf9Cel"
+  },
+  "versionId": "ba138bfc-e2ca-4e9e-a4c5-fd33c4666647",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "df728dd38d94f2b333576385c1e21befbc8ae997c8d08f1e1a2b1ada683b998d"
+  },
+  "id": "bZm79HDvkHFmqX9m",
+  "tags": []
+}

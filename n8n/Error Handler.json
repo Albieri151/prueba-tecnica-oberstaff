@@ -1,0 +1,75 @@
+{
+  "name": "Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7e459930-52ec-4100-aee4-b6fd45f30a78",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "tableId": "automation_logs",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "action",
+              "fieldValue": "Actualizar nueva fecha de pago"
+            },
+            {
+              "fieldId": "error_message",
+              "fieldValue": "={{ $json.execution.error.message }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c0962e8e-a721-4166-b8ad-5c612b945dfa",
+      "name": "Create a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "nh9o2Fkj6jhRTzlj",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Caracas",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "88a21feb-580f-45b5-b196-dc57ba1a6a62",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "df728dd38d94f2b333576385c1e21befbc8ae997c8d08f1e1a2b1ada683b998d"
+  },
+  "id": "1hLgMqtzumNf9Cel",
+  "tags": []
+}

@@ -12,7 +12,7 @@ router = APIRouter()
     description="Permite consultar el estado de suscripción de un usuario específico"
 )
 async def get_subscription_status(
-    user_id: int = Path(..., description="ID del usuario", ge=1),
+    user_id: str = Path(..., description="ID del usuario"),
     token: str = Depends(get_token)
 ):
     """
@@ -27,7 +27,7 @@ async def get_subscription_status(
         )
     
     return SubscriptionStatusResponse(
-        plan=subscription.plan,
+        plan=subscription.plan_type,
         status=subscription.status,
         next_billing_at=subscription.next_billing_at,
         trial_ends_at=subscription.trial_ends_at

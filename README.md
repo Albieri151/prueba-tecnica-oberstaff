@@ -21,6 +21,8 @@ La solución integra **n8n** como orquestador, una **base de datos real en supab
 - **Frontend JS Vainilla**: Portal simple pero funcional y seguro para clientes.
 - **Error Trigger Global**: Captura y registro centralizado de fallos.
 
+- **Documentacion Arquitectura**: [Diagrama de Arquitectura](https://boardmix.com/app/share/CAE.CK-73AEgASoQTMVHy8zAqJkhxD3mvGdMQTAGQAE/xNyqjY，)
+
 ---
 
 ### 1.1 Diseño de la Base de Datos

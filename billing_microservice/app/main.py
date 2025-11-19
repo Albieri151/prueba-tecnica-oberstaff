@@ -11,7 +11,6 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Configurar CORS para permitir peticiones desde el puerto 5500 (p. ej. Live Server)
 origins = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
@@ -25,7 +24,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Incluir routers
 app.include_router(
     billing_actions.router,
     prefix="/api/v1",

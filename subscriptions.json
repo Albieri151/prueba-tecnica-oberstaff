@@ -1,0 +1,38 @@
+[
+  {
+    "user_id": "user_001",
+    "email": "alice@example.com",
+    "plan_type": "basic",
+    "status": "trial",
+    "trial_ends_at": "2025-12-01T00:00:00Z",
+    "next_billing_at": null,
+    "last_payment_attempt": null
+  },
+  {
+    "user_id": "user_002",
+    "email": "bob@example.com",
+    "plan_type": "pro",
+    "status": "active",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-12-15T00:00:00Z",
+    "last_payment_attempt": "2025-11-15T10:00:00Z"
+  },
+  {
+    "user_id": "user_003",
+    "email": "carol@example.com",
+    "plan_type": "basic",
+    "status": "past_due",
+    "trial_ends_at": null,
+    "next_billing_at": "2025-11-20T00:00:00Z",
+    "last_payment_attempt": "2025-11-18T09:30:00Z"
+  },
+  {
+    "user_id": "user_004",
+    "email": "dave@example.com",
+    "plan_type": "pro",
+    "status": "canceled",
+    "trial_ends_at": null,
+    "next_billing_at": null,
+    "last_payment_attempt": "2025-10-30T14:00:00Z"
+  }
+]

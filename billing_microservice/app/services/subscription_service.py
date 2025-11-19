@@ -15,12 +15,10 @@ class SubscriptionService:
         if not subscription:
             return None
 
-        # convertir el dict devuelto por Supabase a un modelo de dominio
+        
         try:
             return SubscriptionDomain(**subscription)
         except Exception:
-            # si la estructura no corresponde, devolver None para manejarlo en el endpoint
             return None
 
-# Instancia global del servicio
 subscription_service = SubscriptionService()

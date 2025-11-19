@@ -79,8 +79,6 @@ async function fetchSubscription() {
     }
 }
 
-// Export utilidad local por compatibilidad con módulos que la requieran
 export { safe, formatDate };
 
-// Iniciar app
 document.addEventListener('DOMContentLoaded', init);

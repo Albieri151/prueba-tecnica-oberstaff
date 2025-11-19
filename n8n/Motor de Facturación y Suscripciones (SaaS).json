@@ -7,7 +7,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "* * * * *"
+              "expression": "0 1 * * *"
             },
             {}
           ]
@@ -462,7 +462,7 @@
     "timezone": "America/Caracas",
     "timeSavedPerExecution": 1
   },
-  "versionId": "87ef4844-a365-4e3e-8a6e-9b68922943e3",
+  "versionId": "e2f70dec-5d79-4893-a3ca-7fa9483a4d08",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "df728dd38d94f2b333576385c1e21befbc8ae997c8d08f1e1a2b1ada683b998d"

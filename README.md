@@ -22,6 +22,7 @@ La solución integra **n8n** como orquestador, una **base de datos real en supab
 - **Error Trigger Global**: Captura y registro centralizado de fallos.
 
 - **Documentacion Arquitectura**: [Diagrama de Arquitectura](https://boardmix.com/app/share/CAE.CK-73AEgASoQTMVHy8zAqJkhxD3mvGdMQTAGQAE/xNyqjY，)
+- **Video Explicativo de la implementación**: [Video explicativo] (https://screenapp.io/app/v/oVOsDeEV74)
 
 ---
 
